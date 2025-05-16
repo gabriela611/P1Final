@@ -26,7 +26,10 @@
       <button type="submit">Calificar</button>
     </form>
 
-    <a href="{% url 'service_list' %}" class="back-link">
+    <a href="{% url 'delete_service' service.id %}">Eliminar servicio</a>
+
+
+    <a href="{% url 'service_list' %}" class="back-link"></a>
       Volver a la lista de servicios
     </a>
   </div>

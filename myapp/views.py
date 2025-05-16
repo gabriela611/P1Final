@@ -45,6 +45,16 @@ def service_list(request):
     return render(request, 'service_list.html', {'services': services})
 
 @login_required
+def delete_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    
+    if request.method == 'POST':
+        service.delete()
+        return redirect('service_list')  # o a donde quieras redirigir después de borrar
+    
+    return render(request, 'confirm_delete.html', {'service': service})
+
+@login_required
 def service_detail(request, service_id):
     """
     Muestra el detalle completo de un servicio específico y permite calificarlo.

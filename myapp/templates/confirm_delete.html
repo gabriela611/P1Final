@@ -1,0 +1,8 @@
+<!-- confirm_delete.html -->
+<h2>¿Estás seguro de que deseas eliminar el servicio "{{ service.name }}"?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'service_detail' service.id %}">Cancelar</a>
+</form>
